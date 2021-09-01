@@ -14,7 +14,7 @@ const resolvers = {
             return userData;
             }
             throw new AuthenticationError('Not logged in');
-            
+
         },
         thoughts: async (parent, {username}) => {
             const params = username ? { username } : {};
@@ -59,7 +59,7 @@ const resolvers = {
                 throw new AuthenticationError("Incorrect credentials")
             }
             const token = signToken(user);
-            return user;
+            return { token, user };
         }
     }
 }
